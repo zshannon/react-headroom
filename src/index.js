@@ -86,7 +86,7 @@ export default class Headroom extends Component {
 
   componentDidUpdate (prevProps) {
     // If children have changed, remeasure height.
-    if (prevProps.children !== this.props.children) {
+    if (this.props.calcHeightOnResize && prevProps.children !== this.props.children) {
       this.setHeightOffset()
     }
   }
@@ -310,7 +310,7 @@ export default class Headroom extends Component {
 
     const wrapperStyles = {
       ...wrapperStyle,
-      height: this.state.height ? this.state.height : null,
+      // height: this.state.height ? this.state.height : null,
     }
 
     const wrapperClassName = userClassName
